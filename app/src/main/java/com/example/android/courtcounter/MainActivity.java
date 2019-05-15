@@ -19,18 +19,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void displayScoreTeamA(int scoreA){
+    public void displayScoreTeamA(int scoreA) {
         TextView textView = (TextView) findViewById(R.id.scoreA);
         textView.setText(String.valueOf(scoreA));
     }
-    public void displayScoreTeamB(int scoreB){
+
+    public void displayScoreTeamB(int scoreB) {
         TextView textView = (TextView) findViewById(R.id.scoreB);
         textView.setText(String.valueOf(scoreB));
     }
 
     public void AddThreeTeamA(View view) {
-      teamAscore += 3;
-      displayScoreTeamA(teamAscore);
+        teamAscore += 3;
+        displayScoreTeamA(teamAscore);
     }
 
     public void AddTwoTeamA(View view) {
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void AddFreeThrowTeamA(View view) {
-        teamAscore +=1;
+        teamAscore += 1;
         displayScoreTeamA(teamAscore);
     }
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         displayScoreTeamB(teamBscore);
     }
 
-    public void reset (int resetA , int resetB){
+    public void reset(int resetA, int resetB) {
         TextView resetATo = (TextView) findViewById(R.id.scoreA);
         resetATo.setText(String.valueOf(resetA));
 
@@ -69,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
     public void resetScore(View view) {
         teamBscore = 0;
         teamAscore = 0;
-        reset(teamAscore , teamBscore);
+        reset(teamAscore, teamBscore);
+        //  displayScoreTeamA(teamAscore);
+        //displayScoreTeamB(teamBscore);
 
     }
 

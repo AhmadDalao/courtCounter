@@ -7,74 +7,62 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int teamAscore = 0;
-    int teamBscore = 0;
+    private int mTeam_A_score = 0;
+    private int mTeam_B_score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        displayScoreTeamB(0);
-        displayScoreTeamA(0);
     }
 
 
-    public void displayScoreTeamA(int scoreA) {
-        TextView textView = (TextView) findViewById(R.id.scoreA);
-        textView.setText(String.valueOf(scoreA));
+    public void addThreeTeamA(View view) {
+        mTeam_A_score = mTeam_A_score + 3;
+        displayScoreA(mTeam_A_score);
     }
 
-    public void displayScoreTeamB(int scoreB) {
-        TextView textView = (TextView) findViewById(R.id.scoreB);
-        textView.setText(String.valueOf(scoreB));
+    private void displayScoreA(int mTeam_a_score) {
+        TextView textView = (TextView) findViewById(R.id.team_a_score);
+        textView.setText(String.valueOf(mTeam_a_score));
     }
 
-    public void AddThreeTeamA(View view) {
-        teamAscore += 3;
-        displayScoreTeamA(teamAscore);
+    public void addTwoTeamA(View view) {
+        mTeam_A_score = mTeam_A_score + 2;
+        displayScoreA(mTeam_A_score);
     }
 
-    public void AddTwoTeamA(View view) {
-        teamAscore += 2;
-        displayScoreTeamA(teamAscore);
+    public void addFreeShotTeamA(View view) {
+        mTeam_A_score = mTeam_A_score + 1;
+        displayScoreA(mTeam_A_score);
     }
 
-    public void AddFreeThrowTeamA(View view) {
-        teamAscore += 1;
-        displayScoreTeamA(teamAscore);
+    public void addThreeTeamB(View view) {
+        mTeam_B_score = mTeam_B_score + 3;
+        displayScoreB(mTeam_B_score);
     }
 
-    public void AddThreeTeamB(View view) {
-        teamBscore += 3;
-        displayScoreTeamB(teamBscore);
+    private void displayScoreB(int mTeam_b_score) {
+        TextView textView = (TextView) findViewById(R.id.team_B_score);
+        textView.setText(String.valueOf(mTeam_b_score));
     }
 
-    public void AddTwoTeamB(View view) {
-        teamBscore += 2;
-        displayScoreTeamB(teamBscore);
+    public void addFreeShotTeamB(View view) {
+        mTeam_B_score = mTeam_B_score + 1;
+        displayScoreB(mTeam_B_score);
+
     }
 
-    public void AddFreeThrowTeamB(View view) {
-        teamBscore += 1;
-        displayScoreTeamB(teamBscore);
-    }
+    public void addTwoTeamB(View view) {
+        mTeam_B_score = mTeam_B_score + 2;
+        displayScoreB(mTeam_B_score);
 
-    public void reset(int resetA, int resetB) {
-        TextView resetATo = (TextView) findViewById(R.id.scoreA);
-        resetATo.setText(String.valueOf(resetA));
-
-        TextView resetBTo = (TextView) findViewById(R.id.scoreB);
-        resetBTo.setText(String.valueOf(resetB));
     }
 
     public void resetScore(View view) {
-        teamBscore = 0;
-        teamAscore = 0;
-        reset(teamAscore, teamBscore);
-        //  displayScoreTeamA(teamAscore);
-        //displayScoreTeamB(teamBscore);
-
+        mTeam_B_score = 0;
+        mTeam_A_score = 0;
+        displayScoreB(mTeam_B_score);
+        displayScoreA(mTeam_A_score);
     }
-
-
 }
